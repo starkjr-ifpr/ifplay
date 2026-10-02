@@ -120,7 +120,7 @@ PostgreSQL
 ### 1. Clonar o projeto
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/starkjr-ifpr/ifplay.git
 cd ifplay
 ```
 
