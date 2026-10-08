@@ -11,5 +11,7 @@ model Song {
   title     String
   artist    String
   createdAt DateTime @default(now())
+
+  @@map("songs")
 }
 // Models serão adicionados conforme as funcionalidades forem implementadas.
