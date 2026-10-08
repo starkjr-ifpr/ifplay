@@ -4,13 +4,13 @@ import { prisma } from '../../database/prisma.js';
 // Cada função abaixo faz uma operação na tabela "songs".
 
 export const songRepository = {
-    // Busca todas as músicas
+    // Busca as músicas
     async findAll() {
         const songs = await prisma.song.findMany();
         return songs;
     },
 
-    // Busca uma música pelo id (devolve null se não existir)
+    // Busca uma música pelo id 
     async findById(id: number) {
         const song = await prisma.song.findUnique({
             where: { id: id },
