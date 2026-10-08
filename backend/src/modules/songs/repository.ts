@@ -1,19 +1,37 @@
 import { prisma } from '../../database/prisma.js';
 
+// Repository: só conversa com o banco de dados.
+// Cada função abaixo faz uma operação na tabela "songs".
+
 export const songRepository = {
-  findAll() {
-    return prisma.song.findMany();
-  },
+    // Busca todas as músicas
+    async findAll() {
+        const songs = await prisma.song.findMany();
+        return songs;
+    },
 
-  findById(id: number) {
-    return prisma.song.findUnique({ where: { id } });
-  },
+    // Busca uma música pelo id (devolve null se não existir)
+    async findById(id: number) {
+        const song = await prisma.song.findUnique({
+            where: { id: id },
+        });
+        return song;
+    },
 
-  create(data: { title: string; artist: string }) {
-    return prisma.song.create({ data });
-  },
+    // Cria uma música nova com título e artista
+    async create(title: string, artist: string) {
+        const song = await prisma.song.create({
+            data: { title: title, artist: artist },
+        });
+        return song;
+    },
 
-  delete(id: number) {
-    return prisma.song.delete({ where: { id } });
-  },
-};  
+    // Apaga uma música pelo id
+    async delete(id: number) {
+        const song = await prisma.song.delete({
+            where: { id: id },
+        });
+        return song;
+    },
+};
+
