@@ -1,5 +1,6 @@
 import cors from '@fastify/cors'
 import Fastify from 'fastify'
+import { songRoutes } from './modules/songs/routes.js'
 
 export async function buildApp() {
   const app = Fastify({
@@ -14,5 +15,9 @@ export async function buildApp() {
     return { status: 'ok' }
   })
 
+
+  await app.register(songRoutes)
+
   return app
+
 }
