@@ -6,5 +6,10 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
+model Song {
+  id        Int      @id @default(autoincrement())
+  title     String
+  artist    String
+  createdAt DateTime @default(now())
+}
 // Models serão adicionados conforme as funcionalidades forem implementadas.
