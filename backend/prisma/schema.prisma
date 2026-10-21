@@ -7,4 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Models serão adicionados conforme as funcionalidades forem implementadas.
+model Song {
+  id     Int    @id @default(autoincrement())
+  title  String
+  artist String
+
+  @@map("songs")
+}
