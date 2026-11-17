@@ -1,4 +1,11 @@
-export default function Card({
+import type { HTMLAttributes, ReactNode } from "react";
+
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  title?: string;
+  children: ReactNode;
+}
+
+export function Card({
   children,
   title,
   className = "",
