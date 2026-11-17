@@ -1,4 +1,3 @@
-
 import { useId } from "react";
 import type { InputHTMLAttributes } from "react";
 
@@ -7,12 +6,11 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 }
 
-export default function Input({
+export function Input({
   label,
   error,
   id,
   className = "",
-  disabled = false,
   ...props
 }: InputProps) {
   const generatedId = useId();
@@ -28,7 +26,6 @@ export default function Input({
 
       <input
         id={inputId}
-        disabled={disabled}
         aria-invalid={Boolean(error)}
         className={`rounded-lg border px-3 py-2 outline-none
           ${error ? "border-red-500" : "border-gray-300"}
